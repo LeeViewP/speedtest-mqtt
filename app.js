@@ -22,4 +22,3 @@ testSpeed().then(data => {
 }).catch(err => console.error('SPEEDTEST-NET FAILED: ' + err.toString()));
  setTimeout(runSpeedTest, interval);
 })();
-console.log("app ended");
