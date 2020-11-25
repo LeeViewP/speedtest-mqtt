@@ -1,6 +1,6 @@
-const mqttServer = 'mqtt://192.168.1.190';
-const mqttServerPort = '1883';
-const mqttServerOptions = { username: 'mqtt', password: '1234' };
+const mqttServer = process.env.MQTT_SERVER; //'mqtt://192.168.1.190';
+const mqttServerPort = process.env.MQTT_PORT;// '1883';
+const mqttServerOptions = { username: process.env.USERNAME, password: process.env.PASSWORD };
 
 const HomeAssistantMQTT = require('./hassioMQTT');
 const { testSpeed } = require('speedtest-promise');
@@ -22,3 +22,4 @@ testSpeed().then(data => {
 }).catch(err => console.error('SPEEDTEST-NET FAILED: ' + err.toString()));
  setTimeout(runSpeedTest, interval);
 })();
+console.log("app ended");

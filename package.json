@@ -1,18 +1,16 @@
 {
   "name": "Speed-Test-MQTT",
-  "version": "9.1.0",
+  "version": "1.0.0",
   "description": "Speed Test with MQTT output",
   "main": "app.js",
   "author": "LeeView",
   "homepage": "",
   "license": "",
   "dependencies": {
-    "async-mqtt": "^2.6.1",
     "mqtt": "^4.2.5",
     "speedtest-promise": "^1.1.0"
   },
   "scripts": {
-    "preinstall": "",
     "start": "node app.js"
   }
 }

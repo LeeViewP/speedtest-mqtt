@@ -92,7 +92,7 @@ class HomeAssistantMQTT {
             var topic = `homeassistant/sensor/${deviceId}/download/config`;
             var payload = {
                 device: publishDevice,
-                name: `${device.label} Download`,
+                name: `${device.name} Download`,
                 // device_class: metric.label.toLowerCase(),
                 icon: 'mdi:speedometer',
                 state_topic: `${this.bridgeTopic}/${deviceId}`,
@@ -105,7 +105,7 @@ class HomeAssistantMQTT {
             topic = `homeassistant/sensor/${deviceId}/upload/config`;
             payload = {
                 device: publishDevice,
-                name: `${device.label} Upload`,
+                name: `${device.name} Upload`,
                 // device_class: metric.label.toLowerCase(),
                 icon: 'mdi:speedometer',
                 state_topic: `${this.bridgeTopic}/${deviceId}`,
@@ -115,17 +115,17 @@ class HomeAssistantMQTT {
             };
             this.publishMQTTmessage(topic, payload, this.mqttPublishPersistentOptions);
         }
-        if (device.ping) {
+        if (device.data.ping) {
             //Ping
             var topic = `homeassistant/sensor/${deviceId}/ping/config`;
             var payload = {
                 device: publishDevice,
-                name: `${device.label} Ping`,
+                name: `${device.name} Ping`,
                 // device_class: metric.label.toLowerCase(),
                 icon: 'mdi:speedometer',
                 state_topic: `${this.bridgeTopic}/${deviceId}`,
                 unique_id: `${deviceId}_ping`,
-                unit_of_measurement: 'Mbps',
+                unit_of_measurement: 'ms',
                 value_template: `{{ value_json.ping }}`
             };
             this.publishMQTTmessage(topic, payload, this.mqttPublishPersistentOptions);
